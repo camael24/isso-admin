@@ -1,0 +1,9 @@
+{
+    "require": {
+        "hoa/core": "^2.15",
+        "hoa/router": "2.15.05.29",
+        "hoa/dispatcher": "0.15.05.29",
+        "hoa/view": "2.15.05.29",
+        "hoa/database": "0.15.05.29"
+    }
+}
