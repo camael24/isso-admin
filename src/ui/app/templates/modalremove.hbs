@@ -1,0 +1,10 @@
+{{#modal-dialog action="close"}}
+    <h3 class="flush--top">Confirmation</h3>
+    <hr/>
+    <p>{{message}}</p>
+    <div>
+        <button style="float: left;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" {{action "close" model true}}>Yes</button>
+        <button style="float: right;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" {{action "close" model false}}>No</button>
+        <div class="clearfix"></div>
+    </div>
+{{/modal-dialog}}

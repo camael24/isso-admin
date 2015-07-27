@@ -16,7 +16,17 @@
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
 }
+
+body { position:absolute; top:0; bottom:0; right:0; left:0; }
+
+.mdl-layout {
+    position: inherit !important;
+}
+
 .demo-avatar {
   width: 48px;
   height: 48px;
@@ -235,4 +245,38 @@ _:-ms-input-placeholder, :root .demo-graph {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+
+/**
+ MODAL
+*/
+
+.modal {
+    position: absolute;
+    z-index: 99999;
+    left: 50%;
+    top: 25%;
+    width: 300px;
+    margin-left: -150px;
+    background-color: #fff;
+    padding: 1em;
+}
+
+input {
+    width: 100%;
+}
+
+.overlay {
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.flush--top {
+    margin-top: 0;
 }

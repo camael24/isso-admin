@@ -1,0 +1,23 @@
+<main class="mdl-layout__content mdl-color--grey-100">
+    <table id="post-list" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th class="mdl-data-table__cell--non-numeric">Title</th>
+                <th>Uri</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{#each post in model}}
+            <tr>
+                <td>{{post.id}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{post.title}}</td>
+                <td>{{post.uri}}</td>
+                <td>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</main>

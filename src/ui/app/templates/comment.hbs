@@ -1,0 +1,42 @@
+<main class="mdl-layout__content mdl-color--grey-100">
+    <table id="comment-list" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+        <thead>
+        <tr>
+            <th {{action 'sortBy' 'nId'}}>#</th>
+            <th {{action 'sortBy' 'updatedAt'}}>Date</th>
+            <th {{action 'sortBy' 'author'}}>Author</th>
+            <th>Email</th>
+            <th>WebSite</th>
+            <th class="mdl-data-table__cell--non-numeric">Text</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th>IP</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each comment in sortedModel}}
+            <tr>
+                <td>{{comment.id}}</td>
+                <td>{{comment.updatedAt}}</td>
+                <td>{{comment.author}}</td>
+                <td>{{comment.authorEmail}}</td>
+                <td>{{comment.authorWebsite}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{substr comment.text max=30}}</td>
+                <td>{{comment.likes}}</td>
+                <td>{{comment.dislikes}}</td>
+                <td>{{post.ip}}</td>
+                <td>
+                    <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
+                        {{action 'openModal' 'modalremove' comment 'Are you sure ?'}}>
+                        <i class="material-icons">delete</i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left; background-color: #ccc;" colspan="10">{{substr comment.text}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</main>
