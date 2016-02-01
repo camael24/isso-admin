@@ -4,7 +4,7 @@ app:
     - "8081:80"
   volumes:
     - .:/app
-    - config/nginx.conf:/etc/nginx/nginx.conf
+    - ./config/nginx.conf:/etc/nginx/nginx.conf
   links:
     - php
 
@@ -12,5 +12,5 @@ php:
     image: plab/docker-php:5.6-fpm
     volumes:
         - .:/app
-        - config/php.ini:/usr/local/etc/php/php.ini
+        - ./config/php.ini:/usr/local/etc/php/php.ini
     command: 'php-fpm'
