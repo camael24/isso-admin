@@ -5,19 +5,20 @@
         "This file is @generated automatically"
     ],
     "hash": "a16c92a2d805cc48ca5805d5029c65e1",
+    "content-hash": "32f0132922afc787ab5e99aa113f6c58",
     "packages": [
         {
             "name": "hoa/core",
-            "version": "2.15.07.07",
+            "version": "2.15.11.09",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Core.git",
-                "reference": "df1f75e6a98d52b879bf36bc1ea8744433458f09"
+                "reference": "5538b1e90e2c66c90df5cc45e03fb85d047be900"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Core/zipball/df1f75e6a98d52b879bf36bc1ea8744433458f09",
-                "reference": "df1f75e6a98d52b879bf36bc1ea8744433458f09",
+                "url": "https://api.github.com/repos/hoaproject/Core/zipball/5538b1e90e2c66c90df5cc45e03fb85d047be900",
+                "reference": "5538b1e90e2c66c90df5cc45e03fb85d047be900",
                 "shasum": ""
             },
             "require": {
@@ -29,13 +30,8 @@
             },
             "suggest": {
                 "ext-mbstring": "ext/mbstring must be present (or a third implementation).",
-                "hoa/console": "To use the `hoa` script.",
-                "hoa/dispatcher": "To use the `hoa` script.",
-                "hoa/router": "To use the `hoa` script."
+                "hoa/cli": "To use the `hoa` script."
             },
-            "bin": [
-                "Bin/hoa"
-            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -76,7 +72,7 @@
                 "parameter",
                 "protocol"
             ],
-            "time": "2015-07-07 13:18:26"
+            "time": "2015-11-09 06:51:06"
         },
         {
             "name": "hoa/database",
