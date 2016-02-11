@@ -16,7 +16,7 @@
             </tr>
             </thead>
             <tbody>
-            {{#each comment in sortedModel}}
+            {{#each sortedModel as |comment|}}
                 <tr open="false" onclick="this.nextSibling.nextSibling.style.display = (this.getAttribute('open') === 'false' ? '' : 'none'); this.setAttribute('open', !JSON.parse(this.getAttribute('open')));">
                     <td>{{comment.id}}</td>
                     <td>{{comment.updatedAt}}</td>
@@ -26,7 +26,7 @@
                     <td class="mdl-data-table__cell--non-numeric">{{substr comment.text max=30}}</td>
                     <td>{{comment.likes}}</td>
                     <td>{{comment.dislikes}}</td>
-                    <td>{{post.ip}}</td>
+                    <td>{{comment.post.uri}}</td>
                     <td>
                         <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
                             {{action 'openModal' 'modalremove' comment 'Are you sure ?'}}>

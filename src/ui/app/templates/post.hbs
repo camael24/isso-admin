@@ -9,13 +9,12 @@
             </tr>
         </thead>
         <tbody>
-        {{#each post in model}}
+        {{#each model as |post|}}
             <tr>
                 <td>{{post.id}}</td>
                 <td class="mdl-data-table__cell--non-numeric">{{post.title}}</td>
                 <td>{{post.uri}}</td>
-                <td>
-                </td>
+                <td></td>
             </tr>
         {{/each}}
         </tbody>
