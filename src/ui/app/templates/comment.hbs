@@ -6,12 +6,8 @@
                 <th {{action 'sortBy' 'nId'}}>#</th>
                 <th {{action 'sortBy' 'updatedAt'}}>Date</th>
                 <th {{action 'sortBy' 'author'}}>Author</th>
-                <th>Email</th>
-                <th>WebSite</th>
                 <th class="mdl-data-table__cell--non-numeric">Text</th>
-                <th>Likes</th>
-                <th>Dislikes</th>
-                <th>IP</th>
+                <th>Vote</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -20,22 +16,52 @@
                 <tr open="false" onclick="this.nextSibling.nextSibling.style.display = (this.getAttribute('open') === 'false' ? '' : 'none'); this.setAttribute('open', !JSON.parse(this.getAttribute('open')));">
                     <td>{{comment.id}}</td>
                     <td>{{comment.updatedAt}}</td>
-                    <td>{{comment.author}}</td>
-                    <td>{{comment.authorEmail}}</td>
-                    <td>{{comment.authorWebsite}}</td>
+                    <td>{{comment.author}} ({{comment.authorEmail}})</td>
                     <td class="mdl-data-table__cell--non-numeric">{{substr comment.text max=30}}</td>
-                    <td>{{comment.likes}}</td>
-                    <td>{{comment.dislikes}}</td>
-                    <td>{{comment.post.uri}}</td>
+                    <td>
+                      <span class="mdl-badge" data-badge="{{comment.likes}}"><i class="material-icons" style="color: green">thumb_up</i></span>
+                      <span class="mdl-badge" data-badge="{{comment.dislikes}}"><i class="material-icons" style="color: red"> thumb_down</i></span>
+                    </td>
                     <td>
                         <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
                             {{action 'openModal' 'modalremove' comment 'Are you sure ?'}}>
                             <i class="material-icons">delete</i>
                         </button>
+                        <a href="http://hoa-project.net{{comment.post.uri}}#isso-15" target="_blank">
+                          <i class="material-icons">open_in_browser</i>
+                        </a>
+                        <a href="#">
+                          <i class="material-icons">help</i>
+                        </a>
                     </td>
                 </tr>
                 <tr style="display:none;">
-                    <td style="text-align: left; background-color: #ccc;" colspan="10">{{substr comment.text}}</td>
+                    <td colspan="7">
+                      <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col">{{comment.updatedAt}}</div>
+                        <div class="mdl-cell mdl-cell--1-col">{{comment.author}}</div>
+                        <div class="mdl-cell mdl-cell--1-col">{{comment.authorEmail}}</div>
+                        <div class="mdl-cell mdl-cell--1-col">{{comment.authorWebsite}}</div>
+                        <div class="mdl-cell mdl-cell--1-col">{{comment.ip}}</div>
+                        <div class="mdl-cell mdl-cell--5-col">{{comment.post.uri}}</div>
+                      </div>
+                      <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">{{substr comment.text}}</div>
+                      </div>
+                      <div class="mdl-grid">
+                        <form action="#">
+                          <div class="mdl-cell mdl-cell--4-col">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="user_replay_{{comment.id}}" placeholder="Username">
+                                <label class="mdl-textfield__label" for="user_replay_{{comment.id}}">Reply as</label>
+                            </div>
+                          </div>
+                          <div class="mdl-cell mdl-cell--8-col">
+                              <textarea class="mdl-textfield__input" type="text" rows="1" ></textarea>
+                          </div>
+                        </form>
+                      </div>
+                    </td>
                 </tr>
             {{/each}}
             </tbody>
