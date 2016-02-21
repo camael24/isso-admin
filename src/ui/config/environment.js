@@ -13,13 +13,14 @@ module.exports = function(environment) {
       }
     },
     contentSecurityPolicy: {
-        'default-src': "'none'",
-        'script-src': "'self'",
-        'font-src': "'self' https://fonts.gstatic.com",
-        'connect-src': "'self' http://localhost:8081",
-        'img-src': "'self' data:",
-        'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
-        'media-src': "'self'"
+
+       'default-src': "'self' http://localhost:*",
+       'script-src':  "http://localhost:*",
+       'font-src':    "'self' https://fonts.gstatic.com",
+       'connect-src': "'self' http://localhost:*",
+       'img-src':     "'self' data:",
+       'style-src':   "'self' 'unsafe-inline' https://fonts.googleapis.com https://code.getmdl.io",
+       'media-src':   "'self'"
     },
 
     APP: {
