@@ -24,16 +24,10 @@
                       <div class="material-icons mdl-badge mdl-badge--no-background mdl-badge--overlap" data-badge="{{comment.dislikes}}" style="color:red">thumb_down</div>
                     </td>
                     <td>
-                        <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect" style="padding: 0"
-                            {{action 'openModal' 'modalremove' comment 'Are you sure ?'}}>
-                            <i class="material-icons">delete</i>
-                        </button>
-                        <a href="http://hoa-project.net{{comment.post.uri}}#isso-15" target="_blank" class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored"  style="padding: 0">
-                          <i class="material-icons">open_in_browser</i>
-                        </a>
-                        <a href="#" class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored"  style="padding: 0">
-                          <i class="material-icons">help</i>
-                        </a>
+                      <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
+                      {{action 'openModal' 'modalremove' comment 'Are you sure ?'}}>
+                        <i class="material-icons">delete</i>
+                      </button>
                     </td>
                 </tr>
                 <tr style="display:none;">
@@ -48,6 +42,18 @@
                       </div>
                       <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">{{substr comment.text}}</div>
+                      </div>
+                      <div class="mdl-grid">
+                        <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
+                          {{action 'openModal' 'modalreply'}}>
+                          <i class="material-icons">reply</i>
+                        </button>
+                        <a href="http://hoa-project.net{{comment.post.uri}}#isso-15" target="_blank" class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored"  style="padding: 0">
+                          <i class="material-icons">open_in_browser</i>
+                        </a>
+                        <a href="#" class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored"  style="padding: 0">
+                          <i class="material-icons">help</i>
+                        </a>
                       </div>
                     </td>
                 </tr>

@@ -174,3 +174,36 @@ _:-ms-input-placeholder, :root .demo-graph {
   box-sizing: border-box;
   align-items: center;
 }
+
+/**
+ MODAL
+*/
+
+.modal {
+    position: absolute;
+    z-index: 99999;
+    left: 50%;
+    top: 25%;
+    width: 500px;
+    margin-left: -150px;
+    background-color: #fff;
+    padding: 1em;
+}
+
+input {
+    width: 100%;
+}
+
+.overlay {
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.flush--top {
+    margin-top: 0;
+}
