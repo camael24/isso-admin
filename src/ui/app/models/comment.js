@@ -9,7 +9,7 @@ export default DS.Model.extend({
     dislikes: DS.attr('string'),
     createdAt: DS.attr('date'),
     updatedAt: DS.attr('date'),
-    post: DS.belongsTo('post'),
+    post: DS.belongsTo('post', {async: false}),
 
     nId: function() {
         return +this.get('id');

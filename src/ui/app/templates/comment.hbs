@@ -1,4 +1,5 @@
-<main class="mdl-grid">
+<main class="mdl-layout__content mdl-color--grey-100">
+  <div class="mdl-grid demo-content">
     <div class="mdl-layout__content">
         <table id="comment-list" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-layout--fixed-tabs">
             <thead>
@@ -19,18 +20,18 @@
                     <td>{{comment.author}} ({{comment.authorEmail}})</td>
                     <td class="mdl-data-table__cell--non-numeric">{{substr comment.text max=30}}</td>
                     <td>
-                      <span class="mdl-badge" data-badge="{{comment.likes}}"><i class="material-icons" style="color: green">thumb_up</i></span>
-                      <span class="mdl-badge" data-badge="{{comment.dislikes}}"><i class="material-icons" style="color: red"> thumb_down</i></span>
+                      <div class="material-icons mdl-badge mdl-badge--no-background mdl-badge--overlap" data-badge="{{comment.likes}}" style="color:green">thumb_up</div>
+                      <div class="material-icons mdl-badge mdl-badge--no-background mdl-badge--overlap" data-badge="{{comment.dislikes}}" style="color:red">thumb_down</div>
                     </td>
                     <td>
-                        <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
+                        <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect" style="padding: 0"
                             {{action 'openModal' 'modalremove' comment 'Are you sure ?'}}>
                             <i class="material-icons">delete</i>
                         </button>
-                        <a href="http://hoa-project.net{{comment.post.uri}}#isso-15" target="_blank">
+                        <a href="http://hoa-project.net{{comment.post.uri}}#isso-15" target="_blank" class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored"  style="padding: 0">
                           <i class="material-icons">open_in_browser</i>
                         </a>
-                        <a href="#">
+                        <a href="#" class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored"  style="padding: 0">
                           <i class="material-icons">help</i>
                         </a>
                     </td>
@@ -48,23 +49,17 @@
                       <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">{{substr comment.text}}</div>
                       </div>
-                      <div class="mdl-grid">
-                        <form action="#">
-                          <div class="mdl-cell mdl-cell--4-col">
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" id="user_replay_{{comment.id}}" placeholder="Username">
-                                <label class="mdl-textfield__label" for="user_replay_{{comment.id}}">Reply as</label>
-                            </div>
-                          </div>
-                          <div class="mdl-cell mdl-cell--8-col">
-                              <textarea class="mdl-textfield__input" type="text" rows="1" ></textarea>
-                          </div>
-                        </form>
-                      </div>
+
+                      <button class="mdl-button mdl-js-button mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect" style="padding: 0"
+                          {{action 'openModal' 'modalreply' comment 'Are you sure ?'}}>
+                          <i class="material-icons">reply</i>
+                      </button>
+                      
                     </td>
                 </tr>
             {{/each}}
             </tbody>
         </table>
+    </div>
     </div>
 </main>
