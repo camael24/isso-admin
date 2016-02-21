@@ -14,13 +14,10 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
 
-       'default-src': "'self' http://localhost:*",
-       'script-src':  "http://localhost:*",
-       'font-src':    "'self' https://fonts.gstatic.com",
-       'connect-src': "'self' http://localhost:*",
-       'img-src':     "'self' data:",
-       'style-src':   "'self' 'unsafe-inline' https://fonts.googleapis.com https://code.getmdl.io",
-       'media-src':   "'self'"
+       'default-src': "'self' 'unsafe-inline' http://localhost",
+       'font-src':    "'self' 'unsafe-inline' https://fonts.gstatic.com",
+       'connect-src': "'self' 'unsafe-inline' http://localhost:*",
+       'style-src':   "'self' 'unsafe-inline' https://fonts.googleapis.com https://code.getmdl.io http://localhost",
     },
 
     APP: {

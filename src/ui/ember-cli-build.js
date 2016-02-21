@@ -19,10 +19,8 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('bower_components/material-design-lite/material.min.css');
+  app.import('bower_components/material-design-lite/material.css');
   app.import('bower_components/material-design-lite/material.min.css.map', { destDir: 'assets' });
-  app.import('bower_components/material-design-lite/material.min.js.map', { destDir: 'assets' });
-  app.import('bower_components/material-design-lite/material.min.js');
-  
+
   return app.toTree();
 };
