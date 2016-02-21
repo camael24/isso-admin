@@ -1,0 +1,19 @@
+{{#modal-dialog action="close"}}
+    <h3 class="flush--top">Votre réponse</h3>
+    <hr/>
+    <form action="#">
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="username" placeholder="Username" >
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
+        <textarea class="mdl-textfield__input" type="text" rows= "5" cols="25" name="text" placeholder="Comment" ></textarea>
+      </div>
+    </form>
+    <div>
+        <button style="float: left;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" {{action "close" model true}}>Send</button>
+        <button style="float: right;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" {{action "close" model false}}>Dismiss</button>
+        <div class="clearfix"></div>
+    </div>
+{{/modal-dialog}}
