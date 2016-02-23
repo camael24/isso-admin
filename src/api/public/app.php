@@ -84,7 +84,45 @@ $router
         $stmt->execute([(int)$commentId]);
 
         header($_SERVER['SERVER_PROTOCOL'] . ' 204 No Content');
-    });
+    })
+    ->post('r', $baseUri . 'comments', function () use($dal) {
+
+        $user     = isset($_POST['user']) ? $_POST['user'] : 'Modo';
+        $comment  = isset($_POST['comment']) ? $_POST['comment'] : 'Power';
+        $ref      = 15;
+
+
+        $stmt = $dal
+                  ->query('SELECT * FROM comments WHERE id = ?')
+                  ->execute([(int)$ref])
+                  ->fetchAll()
+        ;
+
+        if(isset($stmt[0])) {
+
+            $parent = $stmt[0];
+
+            if($user === null || $comment === null || $ref === null)
+            {
+              throw new Exception("Error in api request", 0);
+            }
+
+            $insert = 'INSERT INTO comments (tid, id, parent, created, modified, mode, remote_addr, text, author, email , website, likes, dislikes, voters)
+            values()';
+        }
+
+        else {
+          throw new Exception("Parent not exists", 1);
+
+        }
+
+
+
+
+
+
+    })
+  ;
 
 $dispatcher = new Hoa\Dispatcher\Basic();
 
@@ -98,4 +136,3 @@ try {
     header($_SERVER['SERVER_PROTOCOL'] . ' 500 Not Found');
     echo json_encode(['errors' => ['code' => 500, 'title' => 'Internal server error']]);
 }
-
