@@ -12,7 +12,10 @@ export default Ember.Controller.extend({
             $.ajax({
               type: "POST",
               url: "http://localhost:8081/api/v1/comments",
-              data: { user: $user, comment: $comment }
+              data: { user: $user, comment: $comment },
+              success: function () {
+                console.log('df');
+              }
             })
 
               // obj.destroyRecord();

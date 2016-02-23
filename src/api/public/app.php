@@ -108,19 +108,51 @@ $router
             }
 
             $insert = 'INSERT INTO comments (tid, id, parent, created, modified, mode, remote_addr, text, author, email , website, likes, dislikes, voters)
-            values()';
+            values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+
+            $bind = [
+              $parent['tid'], // TID          0
+              null,           // ID           1
+              $parent['id'],  // Parent       2
+              time(),         // created      3
+              time(),         // modified     4
+              "1",            // mode         5
+              "127.0.0.1",    // remote_addr  6
+              $comment,       // text         7
+              $user,          // author       8
+              'foor@bar.com', // email        9
+              'http://',      // website      10
+              0,              // likes        11
+              0,              // dislikes     12
+              ''              // voters       13
+            ];
+
+            $dal
+              ->query($insert)
+              ->execute($bind);
+
+
+            $comment = [
+                  'id'            => $dal->lastInsertId(),
+                  'text'          => $bind[7],
+                  'ip'            => $bind[6],
+                  'author'        => $bind[8],
+                  'authorEmail'   => $bind[9],
+                  'authorWebsite' => $bind[10],
+                  'likes'         => (int)$bind[11],
+                  'dislikes'      => (int)$bind[12],
+                  'createdAt'     => date('c', $bind[3]),
+                  'updatedAt'     => null === $bind[4] ? date('c', $bind[3]) : date('c', $bind[4]),
+                  'post'          => $bind[0]
+              ];
+
+              echo json_encode($comment);
+
         }
 
         else {
           throw new Exception("Parent not exists", 1);
-
         }
-
-
-
-
-
-
     })
   ;
 
